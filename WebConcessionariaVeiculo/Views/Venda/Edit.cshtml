@@ -1,0 +1,50 @@
+﻿@using WebConcessionariasVeiculos.Models
+@model Venda
+
+@{
+    ViewData["Title"] = "Editar Venda";
+}
+
+<h2>Editar Venda</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="NomeCliente"></label>
+        <input asp-for="NomeCliente" class="form-control" />
+        <span asp-validation-for="NomeCliente" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CPF"></label>
+        <input asp-for="CPF" class="form-control" />
+        <span asp-validation-for="CPF" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Telefone"></label>
+        <input asp-for="Telefone" class="form-control" />
+        <span asp-validation-for="Telefone" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="VeiculoId"></label>
+        <select asp-for="VeiculoId" asp-items="ViewBag.Veiculos" class="form-control"></select>
+        <span asp-validation-for="VeiculoId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PrecoVenda"></label>
+        <input asp-for="PrecoVenda" type="number" step="0.01" class="form-control" />
+        <span asp-validation-for="PrecoVenda" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DataVenda"></label>
+        <input asp-for="DataVenda" type="date" class="form-control" />
+        <span asp-validation-for="DataVenda" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Salvar Alterações" class="btn btn-success" />
+    </div>
+</form>
+
+<p>
+    <a asp-action="Index">Voltar à Lista</a>
+</p>

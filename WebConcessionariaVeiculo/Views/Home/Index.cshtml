@@ -1,0 +1,106 @@
+﻿@{
+    ViewData["Title"] = "Página Inicial";
+}
+
+<style>
+    /* Ajuste do container */
+    .container-home {
+        max-width: 1100px;
+        margin-top: 50px;
+    }
+
+    /* Estilo do título */
+    .display-4 {
+        font-weight: bold;
+        color: #333;
+    }
+
+    /* Ajuste dos cards */
+    .card {
+        border-radius: 8px;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Botões dentro dos cards */
+        .card .btn {
+            width: 100%;
+            font-weight: bold;
+            border-radius: 6px;
+        }
+
+    /* Cores dos botões */
+    .btn-primary {
+        background-color: #28a745;
+        border: none;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        border: none;
+    }
+
+    .btn-warning {
+        background-color: #ffc107;
+        border: none;
+        color: #212529;
+    }
+
+    .btn:hover {
+        opacity: 0.9;
+    }
+
+   
+
+</style>
+
+<div class="container container-home text-center">
+    <h1 class="display-4">Sistema de Gestão de Concessionárias</h1>
+    <p class="lead">Gerencie fabricantes, veículos, concessionárias e vendas de forma eficiente.</p>
+
+    <div class="row mt-5">
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Fabricantes</h5>
+                    <p class="card-text">Gerencie os fabricantes de veículos.</p>
+                    <a asp-controller="Fabricante" asp-action="Index" class="btn btn-primary">Acessar</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Veículos</h5>
+                    <p class="card-text">Visualize e gerencie os veículos disponíveis.</p>
+                    <a asp-controller="Veiculo" asp-action="Index" class="btn btn-success">Acessar</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Concessionárias</h5>
+                    <p class="card-text">Gerencie as concessionárias cadastradas.</p>
+                    <a asp-controller="Concessionaria" asp-action="Index" class="btn btn-info">Acessar</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Vendas</h5>
+                    <p class="card-text">Gerencie as vendas realizadas no sistema.</p>
+                    <a asp-controller="Venda" asp-action="Index" class="btn btn-warning">Acessar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

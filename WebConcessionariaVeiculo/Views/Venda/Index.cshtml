@@ -1,0 +1,53 @@
+﻿@using WebConcessionariasVeiculos.Models
+@model IEnumerable<Venda>
+
+@{
+    ViewData["Title"] = "Lista de Vendas";
+}
+
+<h2>Lista de Vendas</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Registrar Nova Venda</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Cliente</th>
+            <th>CPF</th>
+            <th>Telefone</th>
+            <th>Concessionária</th>
+            <th>Fabricante</th>
+            <th>Veículo</th>
+            <th>Preço de Venda</th>
+            <th>Data da Venda</th>
+            <th>Número de Protocolo</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.NomeCliente</td>
+                <td>@item.CPF</td>
+                <td>@item.Telefone</td>
+                <td>@(item.Concessionaria?.Nome ?? "N/A")</td>
+                <td>@(item.Fabricante?.Nome ?? "N/A")</td>
+                <td>@(item.Veiculo != null ? $"{item.Veiculo.Modelo}" : "N/A")</td>
+                <td>@item.PrecoVenda.ToString("C")</td>
+                <td>@item.DataVenda.ToShortDateString()</td>
+                <td>@item.NumeroProtocolo</td>
+                <td class="d-flex gap-2">
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">Detalhes</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary mt-3">Voltar</a>
+</p>

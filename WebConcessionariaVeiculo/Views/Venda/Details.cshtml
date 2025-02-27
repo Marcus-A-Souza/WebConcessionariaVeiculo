@@ -1,0 +1,28 @@
+﻿@using WebConcessionariasVeiculos.Models
+@model Venda
+
+@{
+    ViewData["Title"] = "Detalhes da Venda";
+}
+
+<h2>Detalhes da Venda</h2>
+
+<div>
+    <h4>Informações do Cliente</h4>
+    <p><strong>Nome:</strong> @Model.NomeCliente</p>
+    <p><strong>CPF:</strong> @Model.CPF</p>
+    <p><strong>Telefone:</strong> @Model.Telefone</p>
+</div>
+
+<div>
+    <h4>Informações do Veículo</h4>
+    <p><strong>Modelo:</strong> @(Model.Veiculo?.Modelo ?? "Não informado")</p>
+    <p><strong>Fabricante:</strong> @(Model.Veiculo?.Fabricante?.Nome ?? "Não informado")</p>
+    <p><strong>Preço de Venda:</strong> @Model.PrecoVenda.ToString("C")</p>
+    <p><strong>Data da Venda:</strong> @Model.DataVenda.ToShortDateString()</p>
+    <p><strong>Número do Protocolo:</strong> @Model.NumeroProtocolo</p>
+</div>
+
+<p>
+    <a asp-action="Index" class="btn btn-secondary">Voltar à Lista</a>
+</p>

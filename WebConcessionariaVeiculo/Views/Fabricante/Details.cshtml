@@ -1,0 +1,20 @@
+﻿@using WebConcessionariasVeiculos
+@model Fabricante
+
+@{
+    ViewData["Title"] = "Detalhes do Fabricante";
+}
+
+<h2>Detalhes do Fabricante</h2>
+
+<div>
+    <h4>@Model.Nome</h4>
+    <p><strong>País de Origem:</strong> @Model.PaisOrigem</p>
+    <p><strong>Ano de Fundação:</strong> @Model.AnoFundacao</p>
+    <p><strong>Website:</strong> <a href="@Model.Website" target="_blank">@Model.Website</a></p>
+</div>
+
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Voltar à Lista</a>
+</p>

@@ -1,0 +1,21 @@
+﻿@using WebConcessionariasVeiculos.Models
+@model Concessionaria
+
+@{
+    ViewData["Title"] = "Detalhes da Concessionária";
+}
+
+<h2>Detalhes da Concessionária</h2>
+
+<div>
+    <h4>@Model.Nome</h4>
+    <p><strong>Endereço:</strong> @Model.Endereco, @Model.Cidade - @Model.Estado, @Model.CEP</p>
+    <p><strong>Telefone:</strong> @Model.Telefone</p>
+    <p><strong>Email:</strong> @Model.Email</p>
+    <p><strong>Capacidade Máxima:</strong> @Model.CapacidadeMaxima</p>
+</div>
+
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Voltar à Lista</a>
+</p>

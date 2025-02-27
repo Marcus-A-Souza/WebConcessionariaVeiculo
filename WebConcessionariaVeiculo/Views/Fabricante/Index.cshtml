@@ -1,0 +1,45 @@
+﻿@using WebConcessionariasVeiculos.Models
+@model IEnumerable<Fabricante>
+
+@{
+    ViewData["Title"] = "Lista de Fabricantes";
+}
+
+<h2>Lista de Fabricantes</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Adicionar Novo Fabricante</a>
+   
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>País de Origem</th>
+            <th>Ano de Fundação</th>
+            <th>Website</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nome</td>
+                <td>@item.PaisOrigem</td>
+                <td>@item.AnoFundacao</td>
+                <td><a href="@item.Website" target="_blank">@item.Website</a></td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Detalhes</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+<p>
+<a asp-controller="Home" asp-action="Index" class="btn btn-secondary mt-3">Voltar</a>
+</p>
